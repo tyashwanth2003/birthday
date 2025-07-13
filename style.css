@@ -1,0 +1,93 @@
+/* Custom CSS for fonts and animations */
+
+/* If you want to use your local OTF files, uncomment and modify this: */
+/*
+@font-face {
+    font-family: 'Montserrat';
+    src: url('path/to/your/Montserrat.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hero';
+    src: url('path/to/your/Hero.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+/* Fallback for Hero font if local file is not used */
+body {
+    font-family: 'Montserrat', sans-serif; /* Default font */
+}
+
+/* Apply 'Hero' font to specific elements as requested */
+p[style*="font-family: 'Hero'"] {
+    font-family: 'Hero', sans-serif;
+}
+
+h2[style*="font-family: 'Montserrat'"],
+div[style*="font-family: 'Montserrat'"],
+h1[style*="font-family: 'Montserrat'"] {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Specific font applications for various elements to ensure Montserrat/Hero are applied */
+nav a, nav div, nav ul li a, button, section h2, section h1,
+#game h2, #game p, section.container.mx-auto.px-4.py-16.text-center h2,
+nav > div, nav ul li a, #openModalBtn, #closeModalBtn, #photoModal > div > div > button,
+#about h2, #about p, #food h2, #food p, #travel h2, #travel p,
+#game h2, #game p, #startButton, #stopButton, #gameResult, #gameReason, #issues p {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+#about p, #food p, #travel p, #game p, #issues p {
+    font-family: 'Hero', sans-serif !important;
+}
+
+
+/* Pop-up Carousel Animation */
+@keyframes scrollPhotos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% * 4)); } /* Scrolls through 5 images, stopping at the last one */
+}
+
+#carouselInner {
+    transition: transform 0.2s ease-in-out; /* Smooth transition for manual scroll */
+}
+
+.scrolling-carousel #carouselInner {
+    animation: scrollPhotos 6s linear infinite; /* Adjusted for continuous loop */
+}
+
+
+/* Game Section Styling */
+#gameBox { /* This is now the main horizontal layout box */
+    position: relative; /* Crucial for absolute positioning of children */
+    width: 100%; /* Cover page left to right */
+    max-width: 900px; /* Adjust max-width as needed */
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 300px; /* Ensure enough height for the video */
+    /* Removed overflow: hidden; as it might clip video controls if they appear */
+    background-color: #1a202c; /* Darker background for the game area */
+    border: 4px solid #EC4899; /* Pink border */
+    border-radius: 0.5rem;
+    display: flex; /* Helps with centering video */
+    align-items: center; /* Vertically align video */
+    justify-content: center; /* Horizontally align video */
+}
+
+/* No specific styling for #targetBox or #gameCharacter anymore */
+/* We don't need the animation keyframes for the character either */
+/* @keyframes preciseDisappearReappear is removed */
+
+/* Style for the video element to ensure it fits the box */
+#gameVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the video scales within the box without distortion */
+}
+
+/* We don't need .game-active or .paused classes for character animation anymore */
