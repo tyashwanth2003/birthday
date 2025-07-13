@@ -51,7 +51,6 @@ const stopButton = document.getElementById('stopButton');
 const gameVideo = document.getElementById('gameVideo'); // Get the video element
 const gameResult = document.getElementById('gameResult');
 const gameReason = document.getElementById('gameReason');
-// No longer need gameCharacter or targetBox variables
 
 let gamePlaying = false; // Flag to track if the game (video) is currently playing
 
@@ -86,3 +85,27 @@ stopButton.addEventListener('click', stopGame);
 // Initial state reset for video when page loads (optional, video usually starts paused)
 gameVideo.pause(); // Ensure video is paused on load
 gameVideo.currentTime = 0; // Ensure video is at the beginning on load
+
+
+// Mobile Navigation Dropdown Logic
+const moreMenuBtn = document.getElementById('moreMenuBtn');
+const mobileDropdown = document.getElementById('mobileDropdown');
+
+moreMenuBtn.addEventListener('click', (event) => {
+    event.stopPropagation(); // Prevent the document click listener from closing it immediately
+    mobileDropdown.classList.toggle('hidden');
+});
+
+// Close the dropdown if clicked outside of it
+document.addEventListener('click', (event) => {
+    if (!mobileDropdown.classList.contains('hidden') && !moreMenuBtn.contains(event.target) && !mobileDropdown.contains(event.target)) {
+        mobileDropdown.classList.add('hidden');
+    }
+});
+
+// Close dropdown when a link inside it is clicked
+mobileDropdown.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileDropdown.classList.add('hidden');
+    });
+});
