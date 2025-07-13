@@ -10,17 +10,39 @@
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
-    <nav class="bg-gray-800 p-4 flex flex-col sm:flex-row justify-between items-center fixed w-full z-50 shadow-lg">
-        <div class="text-gray-400 text-xl sm:text-2xl font-bold mb-2 sm:mb-0" style="font-family: 'Montserrat', sans-serif;">
+    <nav class="bg-gray-800 p-4 flex justify-between items-center fixed w-full z-50 shadow-lg">
+        <div class="text-gray-400 text-xl sm:text-2xl font-bold" style="font-family: 'Montserrat', sans-serif;">
             Vaishu
         </div>
-        <ul class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-8 text-center sm:text-left">
+        
+        <!-- Desktop/Tablet Navigation Links -->
+        <ul class="hidden sm:flex space-x-8 text-center">
             <li><a href="#about" class="text-gray-300 hover:text-white transition duration-300 text-base sm:text-lg">About</a></li>
             <li><a href="#food" class="text-gray-300 hover:text-white transition duration-300 text-base sm:text-lg">Food</a></li>
             <li><a href="#travel" class="text-gray-300 hover:text-white transition duration-300 text-base sm:text-lg">Travel</a></li>
             <li><a href="#issues" class="text-gray-300 hover:text-white transition duration-300 text-base sm:text-lg">Issues</a></li>
             <li><a href="#game" class="text-gray-300 hover:text-white transition duration-300 text-base sm:text-lg">Game</a></li>
         </ul>
+
+        <!-- Mobile Navigation (visible on small screens) -->
+        <div class="sm:hidden relative">
+            <ul class="flex space-x-4 items-center">
+                <li><a href="#about" class="text-gray-300 hover:text-white transition duration-300 text-base">About</a></li>
+                <li><a href="#food" class="text-gray-300 hover:text-white transition duration-300 text-base">Food</a></li>
+                <li>
+                    <button id="moreMenuBtn" class="text-gray-300 hover:text-white transition duration-300 text-base focus:outline-none p-1 rounded-full bg-gray-700">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobileDropdown" class="absolute right-0 mt-2 w-40 bg-gray-700 rounded-md shadow-lg py-1 z-40 hidden">
+                <a href="#travel" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 transition duration-200">Travel</a>
+                <a href="#issues" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 transition duration-200">Issues</a>
+                <a href="#game" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 transition duration-200">Game</a>
+            </div>
+        </div>
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24 sm:pt-16">
