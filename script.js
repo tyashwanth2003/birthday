@@ -69,6 +69,10 @@ function stopGame() {
     if (gamePlaying) {
         gameVideo.pause();
         gamePlaying = false;
+        // --- NEW: Show "You Lose" message when Stop is clicked ---
+        gameResult.classList.remove('hidden');
+        gameReason.classList.remove('hidden');
+        // --- END NEW ---
     }
 }
 
